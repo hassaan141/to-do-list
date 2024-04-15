@@ -1,12 +1,14 @@
-import React from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
+import axios from 'axios' //library for making http reuquests, and it is used to send data to a server
 
 function Create() {
-  const [task, setTask] = useState();
-  const handleAdd=()=>{
-    axios.post('http://localhost:3001/add', {task:task})
-    .then(result => console.log(result))
-    .catch(result => console.log(error))
+
+  const [task, setTask] = useState
+
+  const handleAdd=()=>{ //axios post request to localhost when add button is clicked
+    axios.post('http://localhost:3001/add', {task:task}) //Only the code within the .then/.catch waits for the api call, otherwise everything is run chronologically
+    .then(result => console.log(result)) //if url works then it logs the result
+    .catch(error => console.log(error)) //if error is thrown, it logs the error
   } 
   return (
     <div className='flex justify-center pt-4' >
