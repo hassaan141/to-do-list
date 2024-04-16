@@ -8,7 +8,7 @@ const app = express(); //creates instance for a new express application
 app.use(express.json()); //puts a parse data in req.body
 app.use(cors());
 
-mongoose.connect('mongodb+srv://hassaanfarooqi2000:*****@cluster0.lc8gria.mongodb.net/') //This is where the data for the application will be stored and managed.
+mongoose.connect('mongodb://127.0.0.1:27017/test') //This is where the data for the application will be stored and managed.
 
 
 app.post('/add', (req, res) =>{ //api endpoint that accepts post requests
