@@ -2,7 +2,8 @@ import React from 'react'
 import Create from './Create'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import BsFillTrashFill from ''
+// import BsFillTrashFill from ''
+import trashCan from './assests/trash.png'
 
 
 function Home() {
@@ -15,7 +16,7 @@ function Home() {
 
 
   return (
-    <div className='  w-screen min-h-screen bg-gradient-to-r from-violet-500 to-blue-300'>
+    <div className='  w-screen min-h-screen bg-gradient-to-r from-violet-600 to-indigo-600'>
       <h2 className='flex justify-center pt-14 bold text-4xl'>Muhamamds To-Do List</h2>
       <Create />
       {
@@ -26,15 +27,14 @@ function Home() {
         </div> 
         :
         todos.map(todo=>(
-          <div className='flex justify-center'>
-            <div className='border font-bold my-8 py-4 mx-auto my-0 w-1/3 h-auto pl-28 text-xl bg-gradient-to-r from-violet-400 to-blue-300 border-black'>
-            <BsCircleFill/>
-            {todo.task}
+          <div className='flex justify-center border font-bold my-8 py-2 pt-4 mx-auto w-1/3 h-16 text-xl bg-gradient-to-r from-indigo-400 to-violet-400 border-black'>
+            <div>
+                {todo.task}
             </div>
             <div>
-              <span><BsFillTrashFill/></span>
+                <img src={trashCan} className='w-4 h-4 mt-1 ml-80' alt="Description of the image" /> {/* Added left margin here */}
             </div>
-          </div>
+        </div>
         ))
       }
     </div>
