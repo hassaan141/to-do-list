@@ -10,6 +10,11 @@ app.use(cors());
 
 mongoose.connect('mongodb://127.0.0.1:27017/test') //This is where the data for the application will be stored and managed.
 
+app.get('/get', (req, res)=>{
+  TodoModel.find()
+  .then(result=> res.json(result))
+  .catch(err=> res.json(err))
+})
 
 app.post('/add', (req, res) =>{ //api endpoint that accepts post requests
   const task = req.body.task;
