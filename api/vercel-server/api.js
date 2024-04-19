@@ -1,7 +1,7 @@
 const express  = require('express'); //web app framwork for node.js for web apps and API's
 const mongoose = require('mongoose'); //Object data modeling library for MongoDB and node.js 
 const cors = require('cors'); 
-const TodoModel = require('./Models/Todo');
+const TodoModel = require('../Models/Todo');
 
 const app = express(); //creates instance for a new express application 
 
