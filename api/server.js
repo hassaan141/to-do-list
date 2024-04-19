@@ -8,7 +8,9 @@ const app = express(); //creates instance for a new express application
 app.use(express.json()); //puts a parse data in req.body
 app.use(cors());
 
-mongoose.connect('mongodb://127.0.0.1:27017/test') //This is where the data for the application will be stored and managed.
+//mongoose.connect('mongodb://127.0.0.1:27017/test') //This is where the data for the application will be stored and managed.
+mongoose.connect('mongodb+srv://hassaanfarooqi2000:nmRYBkQvPA9Cyhoq@to-do-list.uk2iswt.mongodb.net/')
+
 
 app.get('/get', (req, res)=>{
   TodoModel.find()
