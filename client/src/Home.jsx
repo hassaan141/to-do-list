@@ -2,8 +2,9 @@ import React from 'react'
 import Create from './Create'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import BsFillTrashFill from ''
-import trashCan from './assests/trash.png'
+import { BsFillTrashFill } from "react-icons/bs";
+import { BsCircle } from "react-icons/bs";
+import { BsCheckCircle } from "react-icons/bs";
 
 
 function Home() {
@@ -13,6 +14,22 @@ function Home() {
     .then(result=>setTodos(result.data))
     .catch(err=> console.log(err))
   }, [])
+
+  const handleEdit =(id)=>{
+    axios.put('http://localhost:3001/update/'+id)
+    .then(result=>{
+      window.location.reload() //to refersh the page every update
+    })
+    .catch(err=> console.log(err))
+  }
+
+  const deleteIcon=(id)=>{
+    axios.delete('http://localhost:3001/delete/'+id)
+    .then(result=>{
+      window.location.reload() //to refersh the page every update
+    })
+    .catch(err=> console.log(err))
+  }
 
 
   return (
@@ -27,12 +44,14 @@ function Home() {
         </div> 
         :
         todos.map(todo=>(
-          <div className='flex justify-center border font-bold my-8 py-2 pt-4 mx-auto w-1/3 h-16 text-xl bg-gradient-to-r from-indigo-400 to-violet-400 border-black'>
-            <div>
-                {todo.task}
+          <div class="flex justify-between items-center border font-bold my-4  px-8 mx-auto w-1/3 h-16 text-xl bg-gradient-to-r from-indigo-400 to-violet-400 border-black rounded-md">
+
+              <div class="flex items-center gap-x-3" onClick={()=>handleEdit(todo._id)}>
+                {todo.done ? <BsCheckCircle className='mt-1 cursor-pointer '/> : <BsCircle className='mt-1 cursor-pointer '/>}
+                <p className ={todo.done? "line-through" : ""}>{todo.task}</p>
             </div>
             <div>
-                <img src={trashCan} className='w-4 h-4 mt-1 ml-80' alt="Description of the image" /> {/* Added left margin here */}
+                <span className='cursor-pointer' onClick={()=>deleteIcon(todo._id)}><BsFillTrashFill /></span>
             </div>
         </div>
         ))

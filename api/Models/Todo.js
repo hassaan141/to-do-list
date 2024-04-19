@@ -1,7 +1,12 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose') //making the monogDB json
 
 const TodoSchema = new mongoose.Schema({
-  task: String
+  task: String,
+  done:{
+    type:Boolean,
+    default:false,
+  }
+
 })
 
 const TodoModel = mongoose.model("todos", TodoSchema)

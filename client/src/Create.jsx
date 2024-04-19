@@ -7,7 +7,9 @@ function Create() {
 
   const handleAdd=()=>{ //axios post request to localhost when add button is clicked
     axios.post('http://localhost:3001/add', {task:task}) //Only the code within the .then/.catch waits for the api call, otherwise everything is run chronologically
-    .then(result => console.log(result)) //if url works then it logs the result
+    .then(result => {
+      window.location.reload()
+    }) 
     .catch(error => console.log(error)) //if error is thrown, it logs the error
   } 
   return (
@@ -18,4 +20,4 @@ function Create() {
   )
 }
 
-export default Create
+export default Create;
