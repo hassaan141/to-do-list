@@ -15,8 +15,12 @@ app.get('/', (req, res)=> res.status(200).json({message: 'Hell0'}))
 
 app.get('/get', (req, res)=>{
   TodoModel.find()
-  .then(result=> res.json(result))
+  .then(result=>{
+    res.json(result)
+    console.log("debug"+result)
+  } )
   .catch(err=> res.json(err))
+  
 })
 
 app.put('/update/:id', (req ,res)=>{
