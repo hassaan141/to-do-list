@@ -6,7 +6,7 @@ function Create() {
   const [task, setTask] = useState();
 
   const handleAdd=()=>{ //axios post request to localhost when add button is clicked
-    axios.post('http://localhost:3001/add', {task:task}) //Only the code within the .then/.catch waits for the api call, otherwise everything is run chronologically
+    axios.post('https://to-do-list-back-ten.vercel.app/add', {task:task}) //Only the code within the .then/.catch waits for the api call, otherwise everything is run chronologically
     .then(result => {
       window.location.reload()
     }) 

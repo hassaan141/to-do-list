@@ -10,13 +10,13 @@ import { BsCheckCircle } from "react-icons/bs";
 function Home() {
   const [todos, setTodos] = useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:3001/get')
+    axios.get('https://to-do-list-back-ten.vercel.app/get')
     .then(result=>setTodos(result.data))
     .catch(err=> console.log(err))
   }, [])
 
   const handleEdit =(id)=>{
-    axios.put('http://localhost:3001/update/'+id)
+    axios.put('https://to-do-list-back-ten.vercel.app/update/'+id)
     .then(result=>{
       window.location.reload() //to refersh the page every update
     })
@@ -24,7 +24,7 @@ function Home() {
   }
 
   const deleteIcon=(id)=>{
-    axios.delete('http://localhost:3001/delete/'+id)
+    axios.delete('https://to-do-list-back-ten.vercel.app/delete/'+id)
     .then(result=>{
       window.location.reload() //to refersh the page every update
     })
