@@ -15,8 +15,14 @@ app.get('/', (req, res)=> res.send("Hello world"))
 
 app.get('/get', (req, res)=>{
   TodoModel.find()
-  .then(result=> res.json(result))
-  .catch(err=> res.json(err))
+  .then(result=> {
+    res.json(result)
+    console.log(result)
+  })
+  .catch(err=>{
+    res.json(err)
+    console.log(err)
+  } )
 })
 
 app.put('/update/:id', (req ,res)=>{
