@@ -11,7 +11,7 @@ app.use(cors());
 //mongoose.connect('mongodb://127.0.0.1:27017/test') //This is where the data for the application will be stored and managed.
 mongoose.connect('mongodb+srv://hassaanfarooqi2000:nmRYBkQvPA9Cyhoq@to-do-list.uk2iswt.mongodb.net/')
 
-app.get('/', (req, res)=> res.status(200).json({message: 'Hello'}))
+app.get('/', (req, res)=> res.send("Hello world"))
 
 app.get('/get', (req, res)=>{
   TodoModel.find()
